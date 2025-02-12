@@ -1,3 +1,18 @@
+
+<script>
+export default {
+  data() {
+    return {
+      appHeight: document.getElementById('app').clientHeight,
+      windowHeight: window.innerHeight,
+    };
+  },
+  methods: {
+
+  }
+};
+</script>
+
 <template>
   <footer :class="{'absolute' : appHeight < windowHeight }" class="inset-x-0 bottom-0 p-4 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
       <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="#" class="hover:underline">Bookstore</a> with Vite and Tailwind CSS. All Rights Reserved.
@@ -15,16 +30,3 @@
     </ul>
   </footer>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      appHeight: document.getElementById('app').clientHeight,
-      windowHeight: window.innerHeight,
-    };
-  },
-  methods: {
-
-  }
-};
-</script>

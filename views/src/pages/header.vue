@@ -1,6 +1,30 @@
 <script setup>
 //import {useCart} from '@/stores/cart.js'
 </script>
+<script>
+import { mapState } from 'pinia'
+
+export default {
+  data() {
+    return {
+      showMenu: false,
+    };
+  },
+  computed: {
+    ...mapState(useCart, {
+      count: 'count'
+    })
+  },
+  methods: {
+    toggleMenu() {
+      this.showMenu = !this.showMenu;
+    },
+    isActive(url) {
+      return window.location.pathname === (APP_BASE_URL + url);
+    },
+  }
+}
+</script>
 
 <template>
   <router-link class="shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50" :class="{'bg-gray-100 text-gray-900' : isActive('')}" to="/">Home</router-link>
@@ -29,27 +53,3 @@
   </div>
 </template>
 
-<script>
-import { mapState } from 'pinia'
-
-export default {
-  data() {
-    return {
-      showMenu: false,
-    };
-  },
-  computed: {
-    ...mapState(useCart, {
-      count: 'count'
-    })
-  },
-  methods: {
-    toggleMenu() {
-      this.showMenu = !this.showMenu;
-    },
-    isActive(url) {
-      return window.location.pathname === (APP_BASE_URL + url);
-    },
-  }
-}
-</script>
