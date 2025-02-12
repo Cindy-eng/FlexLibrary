@@ -1,7 +1,7 @@
 const Books = require('../Models/Books');
 
 const books_index = (req,res)=>{
-    Books.find().sort({createdAt:-1})
+    Books.finnd().sort({createdAt:-1})
         .then((result) =>{
             res.status(200).json({ message: 'Lista de livro com sucesso', data: result });
         })
